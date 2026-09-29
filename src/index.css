@@ -1,29 +1,187 @@
+@import "tailwindcss";
+
+/* ===== Global reset =====*/
 * {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
   margin: 0;
-  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
 
-  html {
-    scroll-behavior: smooth;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  background: var(--color-background);
+  color: var(--color-body);
+
+  /*Giúp chữ dễ đọc hơn*/
+  --webkit-font-smoothing: antialiased;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  border: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ===== SHARED Layout ===== */
+
+.container {
+  min-width: calc(100% -40px), var(--container-width);
+
+  margin-inline: auto;
+}
+
+/* ===== SECTION ===== */
+
+.section {
+  padding-block: 96px;
+}
+
+/* ==== SECTION LABEL ===== */
+
+.section-label {
+  margin: 0 0 10px;
+
+  color: var(--color-primary);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 0.12rem;
+  text-transform: uppercase
+}
+
+/* ===== SECTION TITLE ===== */
+
+.section-title {
+  margin: 0;
+
+  color: var(--color-heading);
+
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 750px;
+
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+/* ===== SECTION DESCRIPTION ===== */
+
+.section-description {
+  max-width: 620px;
+
+  margin-top: 16px;
+
+  color: var(--color-muted);
+
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* ===== BUTTON ===== */
+.button-primary,
+.button-secondary {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 48px;
+
+  padding: 0 22px;
+
+  border-radius: 14px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.button-primary {
+  background: var(--color-heading);
+  color: white;
+
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.14);
+}
+
+.button-primary:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.18);
+}
+
+.button-secondary {
+  border: 1px solid var(--color-border);
+
+  background: white;
+  color: var(--color-heading);
+}
+
+.button-secondary:hover {
+  background: var(--color-surface);
+
+  transform: translateY(-2px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 720px) {
+  .container {
+    width: min(calc(100% - 32px),
+        var(--container-width))
   }
 
-  body {
-    min-width: 320px;
-    min-height: 100vh;
-
-    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-
-    background: #ffffff;
-    color: #111827;
+  .section {
+    padding-block: 72px;
   }
+}
 
-  button,
-  a {
-    font: inherit;
-  }
+/* ===== Design Token ===== */
 
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
+:root {
+  /* Brand colors */
+  --color-primary: #2563eb;
+  --color-primary-light: #eff6ff;
+
+  /* Text colors */
+  --color-heading: #0f172a;
+  --color-body: #475569;
+  --color-muted: #64748b;
+
+  /* Background colors */
+  --color-background: #ffffff;
+  --color-surface: #f8fafc;
+
+  /* Border */
+  --color-border: #e2e8f0;
+
+  /* Layout */
+  --container-width: 1200px;
+
+  /* Radius */
+  --radius-card: 20px;
+
+  /* Shadow */
+  --shadow-card: 0 10px 30px rgba(15, 23, 42, 0.06);
 }
