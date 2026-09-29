@@ -6,11 +6,17 @@ export function Navbar() {
             <div className="container">
                 <div className="flex h-20 items-center justify-between">
                     {/** ===== BRAND ===== */}
-                    <a href="#home" className="flex item-center gap-3" aria-label="Go to homepage">
+                    <a
+                        href="#home"
+                        className="flex item-center gap-3"
+                        aria-label="Go to homepage"
+                    >
                         {/** ===== Logo ===== */}
-                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 text-sm font-bold text-white">
-                            VH
-                        </div>
+                        <img
+                            src="/images/brand/logo.png"
+                            alt="Vương Đức Hiếu logo"
+                            className="h-18 w-18 object-contain"
+                        />
 
                         {/** ===== Personal Name ===== */}
                         <span className="hidden font-semibold text-slate-950 sm:block">
